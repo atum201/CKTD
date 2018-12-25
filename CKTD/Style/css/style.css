@@ -1,0 +1,152 @@
+@import "https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&amp;subset=vietnamese";
+html,body{font-size:15px;background:#e4eaee;font-family:'Montserrat',sans-serif;color:#414e5d;overflow-x:hidden}
+a{color:#292a2d}
+a:hover,a:focus{color:#0b629d}
+.is-alignCenter{align-items:center}
+.is-marginless{margin:0!important}
+.box{padding:2em;box-shadow:0 3px 0 #ced4d8}
+.box.simple{border:1px solid #d8e1e7;box-shadow:none}
+.box .boxTitle{font-weight:600;text-transform:uppercase;background:#0e76bc;color:#fff;margin:-2rem -2rem 2rem;padding:.8rem 2rem;border-radius:5px 5px 0 0;position:relative}
+.box.grey .boxTitle{background:#e4eaee;color:#323c47}
+section + section{margin-top:1.5em}
+.input,.textarea{border:1px solid #dae1e7;box-shadow:none;height:3em}
+.input[disabled],.textarea[disabled]{background-color:#f5f9fb;border-color:#dae1e7}
+.field:not(:last-child){margin-bottom:2rem}
+.button{font-family:'Montserrat',sans-serif}
+.textBlue{color:#0b629d}
+.textRed{color:#cc340b}
+#header{border-top:3px solid #d9e0e4;background:#fff;padding:1.5rem .5rem .75rem}
+#header #logo img{display:block}
+#header .meta,#header .hotline{text-align:right}
+#header #mainMenu{order:1}
+#header .hotline{order:2}
+#header .serverTime{padding:.6em 1em;border:1px solid #dae1e7;margin-right:2em;border-radius:5px}
+#header .serverTime span{color:#0b629d}
+#header .userAction{font-size:.9em}
+#header .login:after{content:"/";margin:0 5px}
+#header .hotline img{position:relative;top:3px;margin-right:3px}
+#header .hotline strong{font-size:1.1em}
+#header .loggedIn{display:inline-block;position:relative}
+#header .loggedIn .name{position:relative;background:#e4eaee;border:1px solid #dae1e7;text-transform:uppercase;padding:.5em 1.8em .5em 1em;border-radius:5px;cursor:pointer}
+#header .loggedIn .name:after{content:"";width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:5px solid #a8aeb4;position:absolute;top:50%;transform:translateY(-50%);right:.6em}
+#header .loggedIn .name img{margin-right:8px;position:relative;top:1px}
+#header .loggedIn ul{position:absolute;z-index:11;background:#fff;top:100%;right:0;margin-top:.7em;box-shadow:0 2px 10px rgba(10,10,10,0.1),0 0 0 1px rgba(10,10,10,0.1);border-radius:5px;width:180px;text-align:left;padding:.5em 0;display:none}
+#header .loggedIn ul li a{display:block;padding:.3em 1.5em}
+#header .loggedIn ul li a:hover{color:#0e76bc;text-decoration:underline}
+#banner{position:relative;height:370px;background:#2d333b url(../images/banner.jpg) no-repeat center center / cover}
+#banner .text{color:#fff;text-align:center;text-transform:uppercase;position:absolute;width:100%;bottom:15px;font-weight:500;font-size:1.9em;line-height:1.2}
+#banner .text span{font-weight:700}
+#mainMenu .nav{height:3rem}
+#mainMenu .nav .nav-item{color:#323c47;text-transform:uppercase;font-size:.96rem;font-weight:600;padding:0 1.5rem;border-radius:5px;font-family:arial}
+#mainMenu .nav .nav-item:not(:first-child){margin-left:1.5em}
+#mainMenu .nav-item a.is-tab:hover,#mainMenu a.nav-item.is-tab:hover,#mainMenu .nav-item a.is-active,#mainMenu a.nav-item.is-active{background:#e4eaee;color:#323c47;border-bottom-color:#ced4d8;border-width:3px}
+#mainMenu .nav-toggle{background:#e4eaee}
+#content{padding:1.5rem}
+.exchangeRate .box .boxTitle img{position:absolute;right:1em;top:50%;width:30px;border:1px solid #fff;border-radius:50%;padding:6px;transform:translateY(-50%)}
+.exchangeRate .boxContent .label{display:inline-block;font-weight:500;margin:0}
+.exchangeRate .boxContent .buy{border-bottom:1px solid #e4eaee;padding-bottom:1rem;margin-bottom:1rem}
+.exchangeRate .boxContent a:hover,.exchangeRate .boxContent a:hover span{color:#0b629d}
+.tradeForm .tradeType li a{display:block;background:#00a3e0;color:#fff;text-transform:uppercase;padding:.6em 1em;margin:0 2em .5em 0;border-radius:3px;font-weight:600}
+.tradeForm .tradeType li.active a,.tradeForm .tradeType li:hover a{background:#0e76bc}
+.tradeForm .field-label .label{width:155px;font-weight:500;text-align:left}
+.tradeForm .field .control{padding-right:60px}
+.tradeForm .field .control .text{position:absolute;width:50px;right:0;top:50%;transform:translateY(-50%)}
+.tradeForm form .formInner{border-bottom:1px solid #e4eaee;padding:1.5em 2em 3em;margin-bottom:2em}
+.tradeForm .dangnhap{border-bottom:1px solid #e4eaee;padding:1.5em 2em 3em;margin-bottom:2em}
+.tradeForm .tabs ul{border-bottom:2px solid #e4eaee}
+.tradeForm .tabs a,.tradeForm .tabs li.is-active a{color:#323c47}
+.tradeForm .tabs li.is-active a{background-color:#e4eaee;border-color:#e4eaee}
+.tradeForm .tabs .sell img{transform:rotate(-180deg)}
+.tradeForm .tab-content{display:none}
+.tradeForm .tab-content.is-active{display:inherit}
+.tradeForm .btcQuantity{margin-bottom:3.5rem}
+.tradeForm .btcLeft{text-transform:uppercase;font-size:1em;margin:.5em .5em 0;color:#0b629d;position:absolute}
+.tradeForm .note{color:#cc340b}
+.tradeForm .continue{text-align:right}
+.tradeForm .formFooter .button{background:#00a3e0;color:#fff;text-transform:uppercase;font-weight:600;border:none;padding:1em 2em;height:auto;border-radius:5px}
+.tradeForm .searchTrade .formFooter{padding-left:155px;margin-left:1.5rem}
+.tradeForm .searchTrade .status{margin-top:4em}
+.tradeForm .searchTrade .status .title{color:#00a3e0;font-size:1.2em}
+.tradeForm .searchTrade .status img{position:relative;top:3px;margin-right:5px}
+.tradeForm .formFinished .columns{border-bottom:1px solid #e4eaee}
+.tradeForm .formFinished .label,.tradeForm .formFinished strong{font-weight:600}
+.tradeForm .formFinished .label{width:230px;flex:none;margin:0}
+.tradeForm .formFinished p:not(:last-child){margin-bottom:.6em}
+.tradeForm .formFinished > div:last-child{margin:2em 0}
+.instruction a:hover{text-decoration:underline}
+.instruction ul{padding:0 1em}
+.instruction ul li + li{margin-top:1em}
+.tradeForm .userAction .field .control{padding-right:0}
+.tradeForm .userAction .field-label .label{padding-top:.8em}
+.userSection .rightSide{order:1}
+.userSection .leftSide{order:2}
+.userSection .box.simple{padding-bottom:1em}
+.userSection .rightSide .box{margin-right:2em}
+.userSection .box.simple .boxTitle{margin-bottom:1em}
+.userSection .title{font-size:1.1rem;text-transform:uppercase;font-weight:500;margin:.8rem 0}
+.userSection .title img{position:relative;top:3px;margin-right:5px}
+.userSection .table{overflow:hidden;margin-top:1.5em}
+.userSection .table thead tr th{background:#e4eaee;color:#323c47;border:none;font-weight:500}
+.userSection .table thead tr th:first-child{border-radius:5px 0 0 5px}
+.userSection .table thead tr th:last-child{border-radius:0 5px 5px 0}
+.userSection .table tr th,.userSection .table tr td{padding:1em;border-color:#e4eaee}
+.userSection .tradeForm .tradeType li a{margin-right:0}
+.userSection .tradeForm .boxTitle img{position:relative;top:2px;margin-right:5px}
+.userSection .tradeForm .sell img{transform:rotate(-180deg)}
+#footer{background:#2d333b;color:#fff;padding:3rem 1.5rem;font-weight:300;font-size:.8em}
+#footer a{color:#fff}
+#footer .footerLogo img{width:155px}
+#footer .title{text-transform:uppercase;border-bottom:1px solid #1072b3;color:#fff;font-size:1.1em;padding-bottom:.4em;margin-bottom:.9em;font-weight:600;display:inline-block;padding-right:10em}
+#footer .copyright{margin-bottom:1em}
+#footer ul li{margin-bottom:5px}
+#liveChat{display:block;width:77px;height:77px;position:fixed;right:40px;bottom:40px}
+@media screen and (min-width: 1192px) {
+.container{max-width:1110px}
+}
+@media (max-width: 768px) {
+.box{padding:1em}
+.box .boxTitle{margin:-1rem -1rem 1rem;padding:.8rem 1rem}
+#header #logo img{margin:0 auto}
+#header .meta{text-align:center}
+#mainMenu .nav-menu{position:absolute;background:#e4eaee;height:auto;top:100%;width:100%;display:none}
+#mainMenu .nav-menu.is-active{display:block}
+#mainMenu .nav .nav-item,#mainMenu a.nav-item.is-active,#mainMenu .nav .nav-item:not(:first-child){padding:1.5rem;margin:0;border-bottom:1px solid #ced4d8}
+.exchangeRate .columns{display:-webkit-box!important;display:-ms-flexbox!important;display:flex!important}
+.exchangeRate .box .boxTitle img{right:.5em;width:25px}
+.tradeForm form .formInner{padding:1em 1em 1.5em;margin-bottom:1.5em}
+.tradeForm .tradeType li{display:inline-block}
+.tradeForm .tradeType li a{margin:0 0 5px}
+.tradeForm .field-label .label{width:100%}
+.tradeForm .continue{text-align:left}
+.tradeForm .searchTrade .formFooter{margin:0;padding:0}
+.tradeForm .userAction .field-label .label{padding-top:0}
+.userSection .rightSide .box{margin-right:0}
+#footer .columns{display:-webkit-box!important;display:-ms-flexbox!important;display:flex!important}
+#liveChat{right:10px;bottom:10px}
+}
+@media (max-width: 667px) {
+#content{padding:.5rem}
+#header .meta > span{margin:0;display:block}
+#header .userAction{padding:1em 0;border-bottom:1px solid #efefef}
+#header .is-flex-mobile{display:block!important}
+#header .hotline{text-align:center}
+#header .loggedIn{margin-top:1.2em}
+#mainMenu .nav-toggle{width:100%}
+#banner{height:200px}
+#banner .text{font-size:1.1em}
+.exchangeRate .columns{display:block!important}
+.tradeForm .tradeType{border-bottom:1px solid #ddd;padding-bottom:.5em}
+.tradeForm .tradeType li{display:block}
+.tradeForm .tabs ul{display:block}
+.tradeForm form .formInner{padding:0 0 1.5em}
+.userSection .tradeForm .tradeType{border:none;padding:0}
+#footer{padding:1.5rem 1rem}
+#footer .columns{display:block!important}
+#liveChat{width:50px;height:50px}
+}
+
+.text-center{text-align: center;}
+
+@media screen and (min-width: 769px){
+	.column.is-3.rate{width: 20%}
+}

@@ -1,0 +1,44 @@
+﻿<hibernate-mapping assembly="DataConnection" namespace="DataConnection.App_Code.ORM.Model" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="CKTD_DichVuCong" table="CKTD_DichVuCong" lazy="true" >
+    <id name="ID" column="ID">
+      <generator class="identity" />
+    </id>
+
+    <many-to-one name="DonVi">
+      <column name="DonViCapNhat_ID" sql-type="int" not-null="false" />
+    </many-to-one>
+    <property name="TuNgay">
+      <column name="TuNgay" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="DenNgay">
+      <column name="DenNgay" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="MoTa">
+      <column name="MoTa" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="TrangThai">
+      <column name="TrangThai" sql-type="int" not-null="false" />
+    </property>
+    <property name="ThoiGianCapNhat">
+      <column name="ThoiGianCapNhat" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="TongSoHoSoTiepNhan">
+      <column name="TongSoHoSoTiepNhan" sql-type="int" not-null="false" />
+    </property>
+    <property name="TongSoHoSoDaXuLy">
+      <column name="TongSoHoSoDaXuLy" sql-type="int" not-null="false" />
+    </property>
+    <property name="TongSoHoSoDungHan">
+      <column name="TongSoHoSoDungHan" sql-type="int" not-null="false" />
+    </property>
+    <property name="TyLeDungHan">
+      <column name="TyLeDungHan" sql-type="float" not-null="false" />
+    </property>
+    <property name="CongThucTinh">
+      <column name="CongThucTinh" sql-type="int" not-null="false" />
+    </property>
+    <property name="LoaiDichVuCong">
+      <column name="LoaiDichVuCong" sql-type="int" not-null="false" />
+    </property>
+  </class>
+</hibernate-mapping>

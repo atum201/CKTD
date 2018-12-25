@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="DataConnection" namespace="DataConnection.App_Code.ORM.Model" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="NguoiDung" table="NguoiDung" lazy="true" >
+    <id name="ID" column="ID">
+      <generator class="identity" />
+    </id>
+    <property name="TenDangNhap">
+      <column name="TenDangNhap" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="MatKhau">
+      <column name="MatKhau" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="TrangThai">
+      <column name="TrangThai" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="LoaiNguoiDung">
+      <column name="LoaiNguoiDung" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="HoTen">
+      <column name="HoTen" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="NgaySinh">
+      <column name="NgaySinh" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="SoCMT">
+      <column name="SoCMT" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="Email">
+      <column name="Email" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="SoDienThoai">
+      <column name="SoDienThoai" sql-type="nvarchar" not-null="false" />
+    </property>
+    <many-to-one name="NguoiDungGioiThieu" class="NguoiDung">
+      <column name="IDNguoiDungGioiThieu" sql-type="int" not-null="false" />
+    </many-to-one>
+    
+    <property name="KichHoatHoaHong">
+      <column name="KichHoatHoaHong" sql-type="nvarchar" not-null="false" />
+    </property>
+  </class>
+</hibernate-mapping>

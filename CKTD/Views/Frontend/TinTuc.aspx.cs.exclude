@@ -1,0 +1,123 @@
+﻿using DataConnection.App_Code.DataManager;
+using DataConnection.App_Code.ORM.Model;
+using DataConnection.Response.Ethereum;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Views_Frontend_TinTuc : System.Web.UI.Page
+{
+    public LoaiTienManagement loaiTienManagement = new LoaiTienManagement();
+    public NguoiDungManagement nguoiDungManagement = new NguoiDungManagement();
+    public DonHangManagement donHangManagement = new DonHangManagement();
+    public TinTucManagement tinTucManagement = new TinTucManagement();
+    public ThongTinHeThongManagement thongTinHeThongManagement = new ThongTinHeThongManagement();
+    public ThongTinHeThong thongTinHeThong;
+    public IList<LoaiTien> listLoaiTien;
+    public IList<TinTuc> listTinTuc;
+    public LoaiTien loaiTien;
+    public TinTuc tinTuc;
+    public string loai;
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+       
+        if (Request.QueryString["loai"].ToString() == "TinTuc")
+        {
+             loai = "Tin Tức";
+            listTinTuc = tinTucManagement.getTinTuc(" where LoaiTinTuc ='TinTuc' and TrangThai='HoatDong' order by NgayTao asc");
+
+        }
+        else
+        {
+            listTinTuc = tinTucManagement.getTinTuc(" where LoaiTinTuc ='HuongDan' and TrangThai='HoatDong' order by NgayTao asc");
+             loai = "Hướng dẫn";
+
+        }
+    }
+    //protected void btnTiepTucMua_Click(object sender, EventArgs e)
+    //{
+    //    DonHang donHang = new DonHang();
+    //    if (Session["TenDangNhap"] != null)
+    //    {
+    //        IList<NguoiDung> listNguoiDung = nguoiDungManagement.getNguoiDung(" where TenDangNhap=N'"+Session["TenDangNhap"].ToString()+"'");
+    //        donHang.NguoiDung = listNguoiDung[0];
+    //    }
+    //    donHang.LoaiTien = loaiTien;
+    //    donHang.SoLuong = float.Parse(txtSoLuongMua.Text);
+    //    donHang.GiaTri = float.Parse(hdfGiaTri.Value);
+    //    donHang.DiaChiViTien = txtDiaChiViTien.Text;
+    //    donHang.SoDienThoai = txtSoDienThoaiMua.Text;
+    //    donHang.TaiKhoanNganHang = new TaiKhoanNganHangManagement().getTaiKhoanNganHangById(int.Parse(hdfIDTaiKhoanNganHang.Value));
+    //    donHang.LoaiDonHang = "KhachMua";
+    //    donHang.TrangThai = "ChuaThanhToan";//DaThanhToan, DaChuyenCoin
+    //    donHang.NgayTaoDonHang = DateTime.Now;
+    //    donHang.HoaHongNguoiGioiThieu = 0;
+    //    donHang.TrangThaiHoaHong = "ChuaKichHoat";//DaKichHoat
+
+        
+    //    donHangManagement.themDonHang(donHang);
+    //    donHang.MaGiaoDich = String.Format("{0:0000}", donHang.ID)+ DateTime.Now.ToString("ddMMyy");
+    //    donHangManagement.updateDonHang(donHang);
+    //    Response.Cookies.Remove("MaGiaoDich");
+    //    HttpCookie httpCookie = new HttpCookie("MaGiaoDich", donHang.MaGiaoDich);
+    //    httpCookie.Expires = DateTime.Now.AddDays(10);
+    //    Response.Cookies.Add(httpCookie);
+    //    Response.Redirect("/Views/Frontend/ChiTietDonHang.aspx?maGiaoDich="+donHang.MaGiaoDich);
+
+    //}
+    //protected void btnTiepTucBan_Click(object sender, EventArgs e)
+    //{
+    //    DonHang donHang = new DonHang();
+    //    if (Session["TenDangNhap"] != null)
+    //    {
+    //        IList<NguoiDung> listNguoiDung = nguoiDungManagement.getNguoiDung(" where TenDangNhap=N'" + Session["TenDangNhap"].ToString() + "'");
+    //        donHang.NguoiDung = listNguoiDung[0];
+    //    }
+    //    donHang.LoaiTien = loaiTien;
+    //    donHang.SoLuong = float.Parse(txtSoLuongBan.Text);
+    //    donHang.GiaTri = float.Parse(hdfGiaTri.Value);
+    //    donHang.SoDienThoai = txtSoDienThoaiBan.Text;
+
+    //    donHang.TaiKhoanNganHang = new TaiKhoanNganHangManagement().getTaiKhoanNganHangById(int.Parse(hdfIDTaiKhoanNganHang.Value));
+    //    donHang.LoaiDonHang = "KhachBan";
+    //    donHang.SoTaiKhoanNguoiBan = txtSoTaiKhoanNguoiBan.Text;
+    //    donHang.TenChuTaiKhoan = hdfTenChuTaiKhoan.Value;
+    //    donHang.MaDiaChiViGiaoDich = "cai nay tu sinh ra sau";
+
+    //    donHang.TrangThai = "ChuaChuyenCoin";//DaChuyenCoin,DaThanhToan
+    //    donHang.NgayTaoDonHang = DateTime.Now;
+    //    donHang.HoaHongNguoiGioiThieu = 0;
+    //    //if (Session["TenDangNhap"] != null)
+    //    //{
+    //    //    IList<NguoiDung> listNguoiDung = nguoiDungManagement.getNguoiDung("where TrangThai like N'HoatDong' and TenDangNhap='" + Session["TenDangNhap"].ToString() + "'");
+    //    //    if (listNguoiDung[0].NguoiDungGioiThieu != null && listNguoiDung[0].NguoiDungGioiThieu.KichHoatHoaHong == "")
+    //    //    {
+    //    //        donHang.TrangThaiHoaHong = "ChuaKichHoat";
+    //    //    }
+    //    //}
+    //    donHang.HoaHongNguoiGioiThieu = 0;
+    //    donHang.TrangThaiHoaHong = "ChuaKichHoat";
+    //    donHangManagement.themDonHang(donHang);
+    //    donHang.MaGiaoDich = String.Format("{0:0000}", donHang.ID) + DateTime.Now.ToString("ddMMyy");
+        
+    //    if (donHang.LoaiTien.ID == 2)
+    //    {
+    //        donHang.MaDiaChiViGiaoDich = new CrawlContent().generationETHAddress();
+    //    }
+
+    //    donHangManagement.updateDonHang(donHang);
+    //    Response.Cookies.Remove("MaGiaoDich");
+    //    HttpCookie httpCookie = new HttpCookie("MaGiaoDich", donHang.MaGiaoDich);
+    //    httpCookie.Expires = DateTime.Now.AddDays(10);
+    //    Response.Cookies.Add(httpCookie);
+    //    Response.Redirect("/Views/Frontend/ChiTietDonHang.aspx?maGiaoDich=" + donHang.MaGiaoDich);
+    //}
+}

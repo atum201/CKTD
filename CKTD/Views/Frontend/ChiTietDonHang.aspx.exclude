@@ -1,0 +1,187 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="ChiTietDonHang.aspx.cs" Inherits="Views_Frontend_ChiTietDonHang" %>
+<%@ Register TagPrefix="uc" TagName="MenuLoaiTien" Src="~/UserControl/MenuLoaiTien.ascx" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="cphLeftColumn" Runat="Server">
+    <uc:MenuLoaiTien runat="server" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cphRightColumn" Runat="Server">
+    <%if (donHang.LoaiDonHang == "KhachMua")
+      {
+           %>
+    <div class="formFinished">
+        <div class="columns">
+            <div class="column label">Mã giao dịch</div>
+            <div class="column">
+                <strong class="textBlue"><%=donHang.MaGiaoDich %></strong>
+                <br>
+                <p>Cung cấp mã giao dịch này nếu bạn cần hỗ trợ về đơn hàng</p>
+            </div>
+        </div>
+        <%--<div class="columns">
+            <div class="column">
+                Mời bạn like fanpage tiktakbtc để cập nhật thông tin mới nhất về thị trường
+                <div class="fb-like" data-href="https://www.facebook.com/tiktakbtc" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+            </div>
+        </div>--%>
+        <div class="columns">
+            <div class="column label">Hướng dẫn thanh toán</div>
+            <div class="column">
+                <p>Vui lòng chuyển khoản cho tài khoản Vietcombank sau:</p>
+                <p>Số tài khoản: <strong><%=donHang.TaiKhoanNganHang.SoTaiKhoan %></strong></p>
+                <p>Tên chủ tài khoản: <strong><%=donHang.TaiKhoanNganHang.TenChuThe %></strong></p>
+                <p>Số tiền: <strong><%=donHang.GiaTri.Value.ToString("0.#") %></strong></p>
+                <p>Nội dung chuyển khoản (memo): </p>
+                <p><strong class="textBlue"><%=donHang.MaGiaoDich %></strong></p>
+                <p><strong><small><em>Chú ý: Bạn hãy chuyển chính xác số tiền (kể cả số lẻ) và nội dung chuyển tiền như hướng dẫn (phần in đậm). Nếu không chúng tôi sẽ không xử lý.</em></small></strong></p>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column label">Địa chỉ nhận <%=donHang.LoaiTien.TenLoaiTien %></div>
+            <div class="column"><%=donHang.DiaChiViTien??"" %></div>
+        </div>
+        <div id="trangthai_C1KZ5CAEZY" class="columns">
+            <div class="column label">Trạng thái</div>
+            <div class="column note">
+                <%if (donHang.TrangThai == "ChuaThanhToan")
+                  { %>
+                Đang chờ thanh toán từ Vietcombank, bạn vui lòng chuyển tiền theo hướng dẫn bên trên
+
+                <%}
+                  else if (donHang.TrangThai == "DaThanhToan")
+                  { %>
+                Cảm ơn bạn đã thanh toán, chúng tôi sẽ chuyển tiền vào ví của bạn trong chốc lát.
+                <%}
+                  else if (donHang.TrangThai == "DaChuyenCoin")
+                  { %>
+                Giao dịch đã hoàn thành.
+                <%} %>
+            </div>
+        </div>
+        <div id="hieuluc_C1KZ5CAEZY" class="columns hieuluc">
+            <div class="column label">Hiệu lực lệnh này còn</div>
+            <div class="column timeCountDown" data-time="<%=donHang.NgayTaoDonHang.Value.AddMinutes(10).ToString("yyyy-MM-dd HH:mm:ss") %>"></div>
+        </div>
+        <div class="columns">
+            <div class="column label">Bạn trả</div>
+            <div class="column"><%=donHang.GiaTri.Value.ToString("0.#") %> USD</div>
+        </div>
+        <div class="columns">
+            <div class="column label">Bạn nhận</div>
+            <div class="column"><%=donHang.SoLuong %> <%=donHang.LoaiTien.TenLoaiTien %></div>
+        </div>
+        <div class="columns">
+            <div class="column label">Thời gian giao dịch</div>
+            <div class="column"><%=donHang.NgayTaoDonHang.Value.ToString("dd-MM-yyyy HH:mm:ss") %></div>
+        </div>
+        <div>
+            Chúng tôi sẽ chuyển BITCOIN vào tài khoản của bạn ngay sau khi nhận được đúng số tiền với nội dung như trên. Chú ý rằng giá BITCOIN biến động liên tục, chúng tôi sẽ chốt lại số lượng BITCOIN ngay khi nhận được thanh toán của bạn.
+        </div>
+    </div>
+    <%}
+      else if (donHang.LoaiDonHang == "KhachBan") 
+      { 
+       %>
+    <div class="formFinished">
+        <div class="columns">
+            <div class="column label">Mã giao dịch</div>
+            <div class="column">
+                <strong class="textBlue"><%=donHang.MaGiaoDich %></strong>
+                <br>
+                <p>Cung cấp mã giao dịch này nếu bạn cần hỗ trợ về đơn hàng</p>
+            </div>
+        </div>
+        <%--<div class="columns">
+            <div class="column">
+                Mời bạn like fanpage tiktakbtc để cập nhật thông tin mới nhất về thị trường
+                <div class="fb-like" data-href="https://www.facebook.com/tiktakbtc" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+            </div>
+        </div>--%>
+        <div class="columns">
+            <div class="column label">Số tài khoản nhận tiền</div>
+            <div class="column"><%=donHang.SoTaiKhoanNguoiBan %>  (<%=donHang.TenChuTaiKhoan %>)</div>
+        </div>
+        <div class="columns">
+            <div class="column label">Số tiền nhận</div>
+            <div class="column"><%=donHang.GiaTri.Value.ToString("0.#") %> USD</div>
+        </div>
+        <div class="columns">
+            <div class="column label">Số lượng <%=donHang.LoaiTien.TenLoaiTien %> bán</div>
+            <div class="column"><%=donHang.SoLuong %> <%=donHang.LoaiTien.TenLoaiTien %></div>
+        </div>
+        <div id="trangthai_ZVYY4NLM2R" class="columns">
+            <div class="column label">Trạng thái</div>
+            <div class="column note">
+                <%if (donHang.TrangThai == "ChuaChuyenCoin")
+                  { %>
+                Vui lòng thanh toán <%=donHang.LoaiTien.TenLoaiTien %> ngay dưới đây
+                <%}
+                  else if (donHang.TrangThai == "DaChuyenCoin")
+                  { %>
+                Cảm ơn bạn đã thanh toán, chúng tôi sẽ chuyển tiền vào tài khoản của bạn trong chốc lát.
+                <%}
+                  else if (donHang.TrangThai == "DaThanhToan")
+                  { %>
+                Giao dịch đã hoàn thành.
+                <%} %>
+            </div>
+        </div>
+        <% // nếu là khách bán + ChuaChuyenCoin 
+            
+        %>
+        <div id="hieuluc_ZVYY4NLM2R" class="columns hieuluc">
+            <div class="column label">Hiệu lực lệnh này còn</div>
+            <div class="column timeCountDown" data-time="<%=donHang.NgayTaoDonHang.Value.AddMinutes(10).ToString("yyyy-MM-dd HH:mm:ss") %>"></div>
+        </div>
+        <div class="columns">
+            <div class="column label">Thời gian giao dịch</div>
+            <div class="column"><%=donHang.NgayTaoDonHang.Value.AddMinutes(10).ToString("yyyy-MM-dd HH:mm:ss") %></div>
+        </div>
+        <%if(donHang.LoaiTien.ID!=1&&donHang.LoaiTien.ID!=2&&donHang.LoaiTien.ID!=3&&donHang.LoaiTien.ID!=5){ %>
+        <div id="vi_8WDJW5SEG4" style="display: block;">
+            <div class="text-center">
+                <div class="qrcode" data-code="bitcoin:0x7aF94490dD98E40E7Ca9F59A1882Cf4034D976A2?amount=1"></div>
+                <p></p>
+                <p>Vui lòng chuyển đúng <b class="textBlue"><%=donHang.SoLuong %></b> <%=donHang.LoaiTien.TenLoaiTien %> vào địa chỉ</p>
+                <p></p>
+                <h4 class="textBlue">0x7aF94490dD98E40E7Ca9F59A1882Cf4034D976A2</h4>
+                <button class="button is-success text-copy" data-clipboard-text="0x7aF94490dD98E40E7Ca9F59A1882Cf4034D976A2">Copy address</button>
+                <p></p>
+            </div>
+        </div>
+        <%}else{
+               %>
+        <div id="vi_8WDJW5SEG4" style="display: block;">
+            <div class="text-center">
+                <div class="qrcode" data-code="<%=donHang.MaDiaChiViGiaoDich %>"></div>
+                <p></p>
+                <p>Vui lòng chuyển đúng <b class="textBlue"><%=donHang.SoLuong %></b> <%=donHang.LoaiTien.TenLoaiTien %> vào địa chỉ</p>
+                <p></p>
+                <h4 class="textBlue"><%=donHang.MaDiaChiViGiaoDich %></h4>
+                <button class="button is-success text-copy" data-clipboard-text="<%=donHang.MaDiaChiViGiaoDich %>">Copy address</button>
+                <p></p>
+            </div>
+        </div>
+
+        <%} %>
+        <%--<div id="vi_ZVYY4NLM2R">
+            <h4 class="text-center">
+                <i class="fa fa-circle-o-notch fa-spin"></i>
+                Đang chờ lấy ví <%=donHang.LoaiTien.TenLoaiTien %>
+            </h4>
+        </div>--%>
+    </div>
+        <script>
+            var clipboard = new Clipboard('.text-copy');
+            $(function () {
+                $('.qrcode').qrcode({
+                    render: 'image',
+                    text: $('.qrcode').attr("data-code"),
+                    size: "203"
+                });
+            });
+        </script>
+    <%
+      }
+         %>
+</asp:Content>
+

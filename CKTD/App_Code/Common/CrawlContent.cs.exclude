@@ -1,0 +1,164 @@
+﻿using HtmlAgilityPack;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Web;
+using Fizzler;
+using Fizzler.Systems.HtmlAgilityPack;
+using Newtonsoft.Json.Linq;
+using System.Net;
+using System.IO;
+//using DataConnection.Response.Ethereum;
+using Newtonsoft.Json;
+/// <summary>
+/// Summary description for CrawlContent
+/// </summary>
+public class CrawlContent
+{
+	public CrawlContent()
+	{
+		//
+		// TODO: Add constructor logic here
+		//
+	}
+
+    public string getGiaRemitano()
+    {
+        String result = null;
+        try
+        {
+            HtmlWeb htmlWeb = new HtmlWeb()
+            {
+                AutoDetectEncoding = false,
+                OverrideEncoding = Encoding.UTF8  //Set UTF8 để hiển thị tiếng Việt
+            };
+            //Load trang web, nạp html vào document
+            HtmlDocument document = htmlWeb.Load("https://remitano.com/vn");
+            var html = document.DocumentNode.InnerHtml;
+            html = html.Substring(html.IndexOf("window.REACT_RAILS_ENV"));
+            html = html.Substring(html.IndexOf('{'));
+            html = html.Substring(0, html.IndexOf("\n"));
+            //html = html.Substring(0, html.IndexOf("window.CURRENCY_PRECISION") - 1);
+            JObject json = JObject.Parse(html);
+
+
+            JObject list = (JObject)json["btc_rates"]["vn"];
+            result = list.ToString();
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        return result;
+    }
+
+    public string getTenTaiKhoanNganHang(string maNganHang, string soTaiKhoan)
+    {
+        String result = null;
+        try
+        {
+            HtmlWeb htmlWeb = new HtmlWeb()
+            {
+                AutoDetectEncoding = false,
+                OverrideEncoding = Encoding.UTF8  //Set UTF8 để hiển thị tiếng Việt
+            };
+            //Load trang web, nạp html vào document
+            HtmlDocument document = htmlWeb.Load("https://tiktakbtc.com/api/check?bank=" + maNganHang + "&sotk=" + soTaiKhoan);
+            result = document.DocumentNode.InnerHtml;
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        return result;
+    }
+
+    public string getETHAddressBalance(string address)
+    {
+        String result = null;
+        try
+        {
+            string html = string.Empty;
+            string url = @"https://api.blockcypher.com/v1/eth/main/addrs/" + address + "/balance";
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.AutomaticDecompression = DecompressionMethods.GZip;
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                result = reader.ReadToEnd();
+            }
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        return result;
+    }
+
+    public string getBTCAddressBalance(string address)
+    {
+        String result = null;
+        try
+        {
+            string html = string.Empty;
+            string url = @"https://api.blockcypher.com/v1/btc/main/addrs/" + address + "/balance";
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.AutomaticDecompression = DecompressionMethods.GZip;
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                result = reader.ReadToEnd();
+            }
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        return result;
+    }
+
+    public float getReceivedBTCTotal(string address)
+    {
+        float result = 0;
+        String jsonAddress = getBTCAddressBalance(address);
+        AddressBalance addressBalance = JsonConvert.DeserializeObject<AddressBalance>(jsonAddress);
+        result = addressBalance.total_received;
+        return result;
+    }
+
+    /// <summary>
+    /// su dung cua blockcypher
+    /// </summary>
+    /// <returns></returns>
+    public string generationETHAddress()
+    {
+        var request = (HttpWebRequest)WebRequest.Create("https://api.blockcypher.com/v1/eth/main/addrs?token=5b3c96c2da5e4f79a318f33ceebb3a5a");
+
+        var postData = "thing1=hello";
+        postData += "&thing2=world";
+        var data = Encoding.ASCII.GetBytes(postData);
+
+        request.Method = "POST";
+        request.ContentType = "application/x-www-form-urlencoded";
+        request.ContentLength = data.Length;
+
+        using (var stream = request.GetRequestStream())
+        {
+            stream.Write(data, 0, data.Length);
+        }
+
+        var response = (HttpWebResponse)request.GetResponse();
+
+        var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+
+        GenerationAddress generationAddress = JsonConvert.DeserializeObject<GenerationAddress>(responseString);
+        return generationAddress.address;
+    }
+}

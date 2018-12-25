@@ -1,0 +1,69 @@
+﻿using Coinbase;
+using Newtonsoft.Json.Linq;
+using RestSharp;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+/// <summary>
+/// Summary description for CoinbaseApiUtil
+/// </summary>
+public class CoinbaseApiUtil
+{
+    CoinbaseApi api = new CoinbaseApi(Constants.CoinBase_API_Key, Constants.CoinBase_API_Secret, useSandbox: false, proxy: null);
+    public string getAccount(string typeWallet)
+    {
+        string result=null;
+        var response = api.SendRequest("accounts", null, Method.GET);
+        JToken data = response.Data;
+        if (data != null)
+        {
+            IList<JToken> listAccount = data.ToList<JToken>();
+            for (int i = 0; i < listAccount.Count; i++)
+            {
+                if (listAccount[i]["currency"].ToString() == typeWallet)
+                {
+                    return listAccount[i]["id"].ToString();
+                }
+            }
+        }
+
+        return result;
+    }
+
+
+    public string generationAddress(string typeWallet)
+    {
+        string result = "-1";
+        string accountId = getAccount(typeWallet);
+        var response = api.SendRequest("accounts/" + accountId + "/addresses", "{\"name\": \"NewAddress\"}", Method.POST);
+        try
+        {
+            result = response.Data["address"].ToString();
+        }
+        catch(Exception ex)
+        {
+
+        }
+        return result;
+    }
+
+    //public float getReceivedTotal(string typeWallet,string address)
+    //{
+    //    float result;
+    //    string accountId = getAccount(typeWallet);
+    //    var response = api.SendRequest("accounts/"+accountId+"/addresses/"+address+"/transactions", "{\"name\": \"NewAddress\"}", Method.GET);
+    //    try
+    //    {
+    //        //result = response.Data["address"].ToString();
+    //    }
+    //    catch (Exception ex)
+    //    {
+
+    //    }
+
+    //    return result;
+    //}
+
+}

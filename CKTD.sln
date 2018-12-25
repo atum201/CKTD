@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CKTD", "http://localhost:16378", "{BD1001B4-3C2F-43A3-834B-ABE92D7072DF}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{2010fc09-6ec2-4392-9532-9f579b5a6012}|DataConnection.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_16378"
+		Debug.AspNetCompiler.PhysicalPath = "CKTD\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_16378\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_16378"
+		Release.AspNetCompiler.PhysicalPath = "CKTD\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_16378\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "CKTD\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataConnection", "DataConnection\DataConnection.csproj", "{2010FC09-6EC2-4392-9532-9F579B5A6012}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD1001B4-3C2F-43A3-834B-ABE92D7072DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD1001B4-3C2F-43A3-834B-ABE92D7072DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD1001B4-3C2F-43A3-834B-ABE92D7072DF}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD1001B4-3C2F-43A3-834B-ABE92D7072DF}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{2010FC09-6EC2-4392-9532-9F579B5A6012}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2010FC09-6EC2-4392-9532-9F579B5A6012}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2010FC09-6EC2-4392-9532-9F579B5A6012}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2010FC09-6EC2-4392-9532-9F579B5A6012}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10DD52B7-8073-4EF3-A64E-423635421386}
+	EndGlobalSection
+EndGlobal

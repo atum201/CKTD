@@ -1,0 +1,16 @@
+﻿<hibernate-mapping assembly="DataConnection" namespace="DataConnection.App_Code.ORM.Model" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="TaiKhoan_DonVi" table="TaiKhoan_DonVi" lazy="true" >
+    <id name="ID" column="ID">
+      <generator class="identity" />
+    </id>
+    <many-to-one name="DonVi">
+      <column name="DonVi_ID" sql-type="int" not-null="false" />
+    </many-to-one>
+    <many-to-one name="TaiKhoan">
+      <column name="TaiKhoan_ID" sql-type="int" not-null="false" />
+    </many-to-one>
+    <property name="TrangThai">
+      <column name="TrangThai" sql-type="int" not-null="false" />
+    </property>
+  </class>
+</hibernate-mapping>

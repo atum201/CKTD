@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="DataConnection" namespace="DataConnection.App_Code.ORM.Model" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="ThongTinHeThong" table="ThongTinHeThong" lazy="true" >
+    <id name="ID" column="ID">
+      <generator class="identity" />
+    </id>
+    <property name="LinkLogo">
+      <column name="LinkLogo" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="LinkBanner">
+      <column name="LinkBanner" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="TimeZoneSystem">
+      <column name="TimeZoneSystem" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="Hotline">
+      <column name="Hotline" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="LinkFacebook">
+      <column name="LinkFacebook" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="LinkYoutube">
+      <column name="LinkYoutube" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="LinkReddit">
+      <column name="LinkReddit" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="LinkLinkedIn">
+      <column name="LinkLinkedIn" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="Footer">
+      <column name="Footer" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="LinkGioiThieu">
+      <column name="LinkGioiThieu" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="ThoiGianCapNhat">
+      <column name="ThoiGianCapNhat" sql-type="int" not-null="false" />
+    </property>
+    <property name="GiaTriKichHoatHoaHong">
+      <column name="GiaTriKichHoatHoaHong" sql-type="float" not-null="false" />
+    </property>
+    <property name="TiLeChiaHoaHong">
+      <column name="TiLeChiaHoaHong" sql-type="float" not-null="false" />
+    </property>
+    <property name="TiGiaVNDUSD">
+      <column name="TiGiaVNDUSD" sql-type="float" not-null="false" />
+    </property>
+  </class>
+</hibernate-mapping>

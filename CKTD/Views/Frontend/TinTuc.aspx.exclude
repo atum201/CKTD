@@ -1,0 +1,46 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="TinTuc.aspx.cs" Inherits="Views_Frontend_TinTuc" %>
+
+<%@ Register TagPrefix="uc" TagName="MenuLoaiTien" Src="~/UserControl/MenuLoaiTien.ascx" %>
+
+<%-- Add content controls here --%>
+<asp:Content ID="ContentLeftColumn" ContentPlaceHolderID="cphLeftColumn" runat="Server">
+    <uc:MenuLoaiTien runat="server" />
+</asp:Content>
+
+<asp:Content ID="ContentRighetColumn" ContentPlaceHolderID="cphRightColumn" runat="Server">
+
+        <div class="tabs is-boxed">
+            <ul>
+                <li class="is-active">
+                    <a>
+                        <span class="icon">
+                            <img src="/Style/images/icon-question-mark.png" />
+                        </span>
+                        <span><%= loai%></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="instruction content">
+            <ul>
+
+                <%
+                    if (listTinTuc != null)
+                    {
+                        for (int i = 0; i < listTinTuc.Count; i++)
+                        { 
+                %>
+                <li>
+                    <a href="/Views/Frontend/ChiTietTinTuc.aspx?idTinTuc=<%=listTinTuc[i].ID %>&loai=<%=listTinTuc[i].LoaiTinTuc %>"><%=listTinTuc[i].TieuDe %></a>
+                </li>
+                <%
+                    }
+                }
+                %>
+            </ul>
+        </div>
+   
+</asp:Content>
+
+
+

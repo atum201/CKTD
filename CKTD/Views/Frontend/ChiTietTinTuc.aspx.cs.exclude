@@ -1,0 +1,56 @@
+﻿using DataConnection.App_Code.DataManager;
+using DataConnection.App_Code.ORM.Model;
+using DataConnection.Response.Ethereum;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Views_Frontend_ChiTietTinTuc : System.Web.UI.Page
+{
+    public LoaiTienManagement loaiTienManagement = new LoaiTienManagement();
+    public NguoiDungManagement nguoiDungManagement = new NguoiDungManagement();
+    public DonHangManagement donHangManagement = new DonHangManagement();
+    public TinTucManagement tinTucManagement = new TinTucManagement();
+    public ThongTinHeThongManagement thongTinHeThongManagement = new ThongTinHeThongManagement();
+    public ThongTinHeThong thongTinHeThong;
+    public IList<LoaiTien> listLoaiTien;
+    public IList<TinTuc> listTinTuc;
+    public LoaiTien loaiTien;
+    public TinTuc tinTuc;
+    public string loai;
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+        string iDTinTuc = HttpContext.Current.Request.QueryString["iDTinTuc"].ToString();
+        try
+        {
+            tinTuc = tinTucManagement.getTinTuc("where ID=N'" + iDTinTuc + "'")[0];
+            if (!this.IsPostBack)
+            {
+                initializeDataInControl();
+            }
+            if (Request.QueryString["iDTinTuc"].ToString() == "TinTuc")
+                loai = "Tin Tức";
+            else
+                loai = "Hướng Dẫn";
+
+        }
+        catch (Exception ex)
+        {
+            tinTuc = null;
+        }
+    }
+    private void initializeDataInControl()
+    {
+
+
+    }
+}

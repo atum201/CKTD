@@ -1,0 +1,44 @@
+﻿using DataConnection.App_Code.DataManager;
+using DataConnection.App_Code.ORM.Model;
+using DataConnection.Response.Ethereum;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Views_Frontend_ChiTietDonHang : System.Web.UI.Page
+{
+    public LoaiTienManagement loaiTienManagement = new LoaiTienManagement();
+    public NguoiDungManagement nguoiDungManagement = new NguoiDungManagement();
+    public DonHangManagement donHangManagement = new DonHangManagement();
+    public DonHang donHang;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+        if (HttpContext.Current.Request.QueryString["maGiaoDich"] != null)
+        {
+            string maGiaoDich = HttpContext.Current.Request.QueryString["maGiaoDich"].ToString();
+            try
+            {
+                donHang = donHangManagement.getDonHang("where maGiaoDich=N'"+maGiaoDich+"'")[0];
+                //if (donHang.LoaiTien.ID == 2)
+                //{
+                //    string json = new CrawlContent().getETHAddressBalance(Request.QueryString["address"].ToString());
+                //    AddressBalance results = JsonConvert.DeserializeObject<AddressBalance>(json);
+                //    if (results.total_received >= donHang.SoLuong)
+                //    {
+
+                //    }
+                //}
+            }
+            catch (Exception ex)
+            {
+                donHang = null;
+            }
+        }
+
+    }
+}

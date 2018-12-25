@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="DataConnection" namespace="DataConnection.App_Code.ORM.Model" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="LoaiTien" table="LoaiTien" lazy="true" >
+    <id name="ID" column="ID">
+      <generator class="identity" />
+    </id>
+    <property name="TenLoaiTien">
+      <column name="TenLoaiTien" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="GiaMua">
+      <column name="GiaMua" sql-type="float" not-null="false" />
+    </property>
+    <property name="GiaBan">
+      <column name="GiaBan" sql-type="float" not-null="false" />
+    </property>
+    <property name="AutoLoad">
+      <column name="AutoLoad" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="TrangThai">
+      <column name="TrangThai" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="ThuTu">
+      <column name="ThuTu" sql-type="int" not-null="false" />
+    </property>
+    <property name="HanMuc">
+      <column name="HanMuc" sql-type="float" not-null="false" />
+    </property>
+    <property name="ThongBaoHetHanMuc">
+      <column name="ThongBaoHetHanMuc" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="LinkIcon">
+      <column name="LinkIcon" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="MaLoaiTien">
+      <column name="MaLoaiTien" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="ThuTuHienThiBox">
+      <column name="ThuTuHienThiBox" sql-type="int" not-null="false" />
+    </property>
+    <property name="PhuPhiMua">
+      <column name="PhuPhiMua" sql-type="float" not-null="false" />
+    </property>
+    <property name="PhuPhiBan">
+      <column name="PhuPhiBan" sql-type="float" not-null="false" />
+    </property>
+  </class>
+</hibernate-mapping>

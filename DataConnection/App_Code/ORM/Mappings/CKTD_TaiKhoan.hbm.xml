@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="DataConnection" namespace="DataConnection.App_Code.ORM.Model" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="CKTD_TaiKhoan" table="CKTD_TaiKhoan" lazy="true" >
+    <id name="ID" column="ID">
+      <generator class="identity" />
+    </id>
+
+    <property name="TaiKhoan">
+      <column name="TaiKhoan" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="MatKhau">
+      <column name="MatKhau" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="Ten">
+      <column name="Ten" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="Role">
+      <column name="Role" sql-type="int" not-null="false" />
+    </property>
+    <property name="TrangThai">
+      <column name="TrangThai" sql-type="int" not-null="false" />
+    </property>
+    <property name="LoaiNguoiDung">
+      <column name="LoaiNguoiDung" sql-type="int" not-null="false" />
+    </property>
+  </class>
+</hibernate-mapping>

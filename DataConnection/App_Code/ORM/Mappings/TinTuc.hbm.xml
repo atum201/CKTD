@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="DataConnection" namespace="DataConnection.App_Code.ORM.Model" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="TinTuc" table="TinTuc" lazy="true" >
+    <id name="ID" column="ID">
+      <generator class="identity" />
+    </id>
+    <property name="TieuDe">
+      <column name="TieuDe" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="NoiDung" type="StringClob">
+      <column name="NoiDung" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="LoaiTinTuc">
+      <column name="LoaiTinTuc" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="NgayTao">
+      <column name="NgayTao" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="TrangThai" >
+      <column name="TrangThai" sql-type="nvarchar" not-null="false" />
+    </property>
+  </class>
+</hibernate-mapping>
