@@ -31,6 +31,7 @@ public  class CKTDCommon
     public string ShowDonVi(IList<CKTD_DonVi> list, int start)
     {
         string str = string.Empty;
+        EnumTextValue e=(EnumTextValue)CKTDLoaiNguoiDung.DonViChuQuan.GetType().GetCustomAttributes(typeof(EnumTextValue), false).First();
         return str;
     }
     public string ShowVanBan(IList<CKTD_VanBan> list, int start)
@@ -43,8 +44,23 @@ public  class CKTDCommon
         string str = string.Empty;
         return str;
     }
-}
+    public string GetEnumTextValue(Enum t)
+    {
+        //EnumTextValue e = (EnumTextValue)t.GetType().GetCustomAttributes(typeof(EnumTextValue), false).First();
 
+        return "";
+    }
+}
+[System.AttributeUsage(System.AttributeTargets.All)]
+public class EnumTextValue : System.Attribute
+{
+    private string text;
+
+    public EnumTextValue(string text)
+    {
+        this.text = text;
+    }
+}
 public enum LoaiDanhSach {
     TaiKhoan,
     DonVi,
@@ -55,4 +71,14 @@ public enum LoaiDanhSach {
 public enum CKTDTrangThai
 {
 
+}
+
+public enum CKTDLoaiNguoiDung
+{
+    [EnumTextValue("Quản trị hệ thống")]
+    QuanTriHeThong,
+    [EnumTextValue("Đơn vị chủ quản")]
+    DonViChuQuan,
+    [EnumTextValue("Khác")]
+    Khac
 }

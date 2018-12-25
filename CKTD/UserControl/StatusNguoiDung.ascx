@@ -3,8 +3,8 @@
 { 
         %>
 <span class="userAction">
-<a href="/Views/Frontend/DangNhap.aspx" class="login">ĐĂNG NHẬP</a>
-<a href="/Views/Frontend/DangKy.aspx" class="register">ĐĂNG KÝ</a>
+<a href="/QuanTri/DangNhap.aspx" class="login">ĐĂNG NHẬP</a>
+<a href="/QuanTri/DangKy.aspx" class="register">ĐĂNG KÝ</a>
 </span>
 <%}else{ %>
 

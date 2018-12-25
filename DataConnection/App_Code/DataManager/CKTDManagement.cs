@@ -171,18 +171,19 @@ namespace DataConnection.App_Code.DataManager
             }
         }
 
-        public float tongGiaTriGiaoDich(string condition)
+        public bool xacThucTaiKhoan(string TaiKhoan, string password)
         {
             try
             {
-                string query = @"select sum(GiaTri) from CKTD_TaiKhoan " + condition;
+                string query = @"select  * from CKTD_TaiKhoan where TaiKhoan=N'" + TaiKhoan + "' and MatKhau=N'" + password + "'";
                 ISQLQuery iQuery = session.CreateSQLQuery(query);
-                double result = iQuery.UniqueResult<double>();
-                return (float)result;
+                iQuery.AddEntity(typeof(CKTD_TaiKhoan));
+                IList<CKTD_TaiKhoan> listNguoiDung = iQuery.List<CKTD_TaiKhoan>();
+                return (listNguoiDung == null || listNguoiDung.Count == 0) ? false : true;
             }
             catch (Exception ex)
             {
-                return 0;
+                return false;
             }
         }
         #endregion

@@ -25,3 +25,14 @@ E:\Project\ASP.Net\CKTD\DataConnection\obj\Debug\DataConnection.csproj.CoreCompi
 E:\Project\ASP.Net\CKTD\DataConnection\obj\Debug\DataConnection.csproj.CopyComplete
 E:\Project\ASP.Net\CKTD\DataConnection\obj\Debug\DataConnection.dll
 E:\Project\ASP.Net\CKTD\DataConnection\obj\Debug\DataConnection.pdb
+E:\Project\CKTD\DataConnection\bin\Debug\DataConnection.dll
+E:\Project\CKTD\DataConnection\bin\Debug\DataConnection.pdb
+E:\Project\CKTD\DataConnection\bin\Debug\Iesi.Collections.dll
+E:\Project\CKTD\DataConnection\bin\Debug\NHibernate.Caches.SysCache.dll
+E:\Project\CKTD\DataConnection\bin\Debug\NHibernate.dll
+E:\Project\CKTD\DataConnection\bin\Debug\NHibernate.Validator.dll
+E:\Project\CKTD\DataConnection\obj\Debug\DataConnection.csprojAssemblyReference.cache
+E:\Project\CKTD\DataConnection\obj\Debug\DataConnection.csproj.CoreCompileInputs.cache
+E:\Project\CKTD\DataConnection\obj\Debug\DataConnection.csproj.CopyComplete
+E:\Project\CKTD\DataConnection\obj\Debug\DataConnection.dll
+E:\Project\CKTD\DataConnection\obj\Debug\DataConnection.pdb
