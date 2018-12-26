@@ -44,25 +44,7 @@
 			        </tr>
 		        </thead>
 		        <tbody id="dsBanGhi">
-        	        <tr>
-                        <td>1</td>
-                        <td>Admin Cục viễn thông</td>
-                        <td>cucvienthong</td>
-                        <td>Đơn vị chủ quản</td>
-                        <td>Hoạt động</td>
-                        <td>20/12/2018</td>
-                        <td>
-                            <a href="/QuanTri/CapNhatTaiKhoan.aspx?taikhoan=<%=string.Empty %>">
-                                <span class="icon has-text-success">
-                                    <i class="fa fa-edit"></i>
-                                </span>
-                            </a>
-                            <span class="icon has-text-success">
-                                <i class="fa fa-trash"></i>
-                            </span>
-                        </td>
-                    </tr>
-        	
+        	        <asp:Literal ID="showDanhSach" runat="server"></asp:Literal>
 		        </tbody>
 	        </table>
         </div>

@@ -12,16 +12,18 @@ public partial class QuanTri_DangNhap : System.Web.UI.Page
     public CKTDManagement cktd = new CKTDManagement();
     public CKTDCommon ckcm = new CKTDCommon();
     public IList<CKTD_TaiKhoan> listNguoiDung;
+    //public NguoiDungManagement nd = new NguoiDungManagement();
     public NguoiDung nguoiDung;
     protected void Page_Load(object sender, EventArgs e)
     {
-        txtTenDangNhap.Text = ckcm.GetEnumTextValue((CKTDLoaiNguoiDung)1);
+        
     }
     protected void btnDangNhap_Click(object sender, EventArgs e)
     {
         if (cktd.xacThucTaiKhoan(txtTenDangNhap.Text, txtPassword.Text))
         {
             Session["TenDangNhap"] = txtTenDangNhap.Text;
+            Response.Redirect("/QuanTri/DanhSachTaiKhoan.aspx");
         }
         else
         {

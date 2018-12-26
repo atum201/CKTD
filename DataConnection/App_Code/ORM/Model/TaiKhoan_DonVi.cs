@@ -11,6 +11,6 @@ namespace DataConnection.App_Code.ORM.Model
         public virtual int ID { get; set; }
         public virtual CKTD_DonVi DonVi { get; set; }
         public virtual CKTD_TaiKhoan TaiKhoan { get; set; }
-        public virtual int TrangThai { get; set; }
+        public virtual int? TrangThai { get; set; }
     }
 }

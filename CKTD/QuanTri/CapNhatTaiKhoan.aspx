@@ -55,9 +55,6 @@
                             <div class="control">
                                
                                 <asp:DropDownList ID="ddlLoaiTaiKhoan" CssClass="input" runat="server">
-                                    <asp:ListItem>Quản trị</asp:ListItem>
-                                    <asp:ListItem>Đơn vị trực thuộc</asp:ListItem>
-                                    <asp:ListItem>Khác</asp:ListItem>
                                 </asp:DropDownList>
                              
                             </div>
@@ -68,7 +65,7 @@
                     <div class="column continue">
                         <%--<button type="button" class="subfrm button continue">Tiếp tục</button>--%>
 
-                        <asp:Button runat="server" ID="btnCapNhat" CssClass="subfrm button continue" Text="Cập Nhật" OnClientClick="return ValidateNumber()" OnClick="btnCapNhat_Click" />
+                        <asp:Button runat="server" ID="btnCapNhat" CssClass="subfrm button continue" Text="Cập Nhật" OnClick="btnCapNhat_Click" />
                         <asp:Button runat="server" ID="btnQuayLai" CssClass="subfrm button continue" Text="Trở về" OnClick="btnQuayLai_Click" />
                     </div>
                 </div>
@@ -76,19 +73,6 @@
             </div>
     </form>
     <script>
-
-        function ValidateNumber() {
-            var result = "";
-
-            if (!isFloat(Number($("input[id*='TxtHanMucTrongNgay']").val()))) {
-                result += "Hạn mức tài khoản vui lòng nhập kiểu số\n";
-            }
-
-            if (result == "") {
-                return true;
-            }
-            alert(result);
-            return false;
-        }
+        
     </script>
 </asp:Content>

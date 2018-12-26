@@ -11,7 +11,7 @@
       <column name="LoaiDonVi" sql-type="int" not-null="false" />
     </property>
     <property name="STT">
-      <column name="STT" sql-type="nvarchar" not-null="false" />
+      <column name="STT" sql-type="int" not-null="false" />
     </property>
     <property name="TrangThai">
       <column name="TrangThai" sql-type="int" not-null="false" />

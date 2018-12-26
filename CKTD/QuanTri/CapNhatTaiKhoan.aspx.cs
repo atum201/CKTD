@@ -70,13 +70,16 @@ public partial class QuanTri_CapNhatTaiKhoan : System.Web.UI.Page
             nguoidung.Ten = txtTenHienThi.Text.Trim();
             nguoidung.TaiKhoan = txtTenDangNhap.Text.Trim();
             nguoidung.LoaiNguoiDung = int.Parse(ddlLoaiTaiKhoan.SelectedValue);
+            nguoidung.Role = int.Parse(ddlLoaiTaiKhoan.SelectedValue);
             cktd.updateCKTD_TaiKhoan(nguoidung);
         }
         else
         {
+            nguoidung = new CKTD_TaiKhoan();
             nguoidung.Ten = txtTenHienThi.Text.Trim();
             nguoidung.TaiKhoan = txtTenDangNhap.Text.Trim();
             nguoidung.LoaiNguoiDung = int.Parse(ddlLoaiTaiKhoan.SelectedValue);
+            nguoidung.Role = int.Parse(ddlLoaiTaiKhoan.SelectedValue);
             cktd.themCKTD_TaiKhoan(nguoidung);
         }
     }

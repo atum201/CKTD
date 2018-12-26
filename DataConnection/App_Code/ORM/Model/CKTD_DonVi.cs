@@ -10,8 +10,8 @@ namespace DataConnection.App_Code.ORM.Model
     {
         public virtual int ID { get; set; }
         public virtual string TenDonVi { get; set; }
-        public virtual int TrangThai { get; set; }
-        public virtual int LoaiDonVi { get; set; }
-        public virtual int STT { get; set; }
+        public virtual int? TrangThai { get; set; }
+        public virtual int? LoaiDonVi { get; set; }
+        public virtual int? STT { get; set; }
     }
 }

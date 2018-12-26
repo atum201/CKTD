@@ -19,7 +19,7 @@ public partial class OneColumn : System.Web.UI.MasterPage
             listNguoiDung = cktd.getCKTD_TaiKhoan("WHERE TaiKhoan=N'" + Session["TenDangNhap"] + "'");
             if (listNguoiDung.Count > 0)
             {
-                loainguoidung = listNguoiDung[0].LoaiNguoiDung;
+                loainguoidung = listNguoiDung[0].LoaiNguoiDung.Value;
 
             }
             else

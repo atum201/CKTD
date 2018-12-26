@@ -13,14 +13,14 @@
     <property name="DenNgay">
       <column name="DenNgay" sql-type="datetime" not-null="false" />
     </property>
+    <property name="ThoiGianCapNhat">
+      <column name="ThoiGianCapNhat" sql-type="datetime" not-null="false" />
+    </property>
     <property name="MoTa">
       <column name="MoTa" sql-type="nvarchar" not-null="false" />
     </property>
     <property name="TrangThai">
       <column name="TrangThai" sql-type="int" not-null="false" />
-    </property>
-    <property name="ThoiGianCapNhat">
-      <column name="ThoiGianCapNhat" sql-type="datetime" not-null="false" />
     </property>
     <property name="TongSoHoSoTiepNhan">
       <column name="TongSoHoSoTiepNhan" sql-type="int" not-null="false" />

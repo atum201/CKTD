@@ -110,6 +110,11 @@
     <Compile Include="Response\Ethereum\GenerationAddress.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="App_Code\ORM\Mappings\CKTD_DichVuCong.hbm.xml" />
+    <EmbeddedResource Include="App_Code\ORM\Mappings\CKTD_DonVi.hbm.xml" />
+    <EmbeddedResource Include="App_Code\ORM\Mappings\CKTD_TaiKhoan.hbm.xml" />
+    <EmbeddedResource Include="App_Code\ORM\Mappings\CKTD_VanBan.hbm.xml" />
+    <EmbeddedResource Include="App_Code\ORM\Mappings\TaiKhoan_DonVi.hbm.xml" />
     <EmbeddedResource Include="App_Code\ORM\Mappings\TinTuc.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -132,13 +137,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App_Code\ORM\Mappings\LogRutTienHoaHong.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_Code\ORM\Mappings\CKTD_DichVuCong.hbm.xml" />
-    <Content Include="App_Code\ORM\Mappings\CKTD_DonVi.hbm.xml" />
-    <Content Include="App_Code\ORM\Mappings\CKTD_TaiKhoan.hbm.xml" />
-    <Content Include="App_Code\ORM\Mappings\CKTD_VanBan.hbm.xml" />
-    <Content Include="App_Code\ORM\Mappings\TaiKhoan_DonVi.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
