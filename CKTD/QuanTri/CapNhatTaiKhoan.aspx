@@ -54,7 +54,7 @@
                         <div class="field">
                             <div class="control">
                                
-                                <asp:DropDownList CssClass="input" runat="server">
+                                <asp:DropDownList ID="ddlLoaiTaiKhoan" CssClass="input" runat="server">
                                     <asp:ListItem>Quản trị</asp:ListItem>
                                     <asp:ListItem>Đơn vị trực thuộc</asp:ListItem>
                                     <asp:ListItem>Khác</asp:ListItem>

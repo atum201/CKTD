@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using DataConnection.App_Code.DataManager;
 using DataConnection.App_Code.ORM.Model;
@@ -44,11 +45,20 @@ public  class CKTDCommon
         string str = string.Empty;
         return str;
     }
-    public string GetEnumTextValue(Enum t)
+    public string GetEnumTextValue(Enum e)
     {
-        //EnumTextValue e = (EnumTextValue)t.GetType().GetCustomAttributes(typeof(EnumTextValue), false).First();
+        string text = "";
+        MemberInfo[] member = e.GetType().GetMember(e.ToString());
+        if ((member != null) && (member.Length == 1))
+        {
+            object[] customAttributes = member[0].GetCustomAttributes(typeof(EnumTextValue), false);
+            if (customAttributes.Length == 1)
+            {
+                text = ((EnumTextValue)customAttributes[0]).Text();
+            }
+        }
+        return text;
 
-        return "";
     }
 }
 [System.AttributeUsage(System.AttributeTargets.All)]
@@ -60,7 +70,9 @@ public class EnumTextValue : System.Attribute
     {
         this.text = text;
     }
+    public string Text() { return text; }
 }
+
 public enum LoaiDanhSach {
     TaiKhoan,
     DonVi,
